@@ -9,6 +9,14 @@ BT_Accessory/keys/*_signingkey.pem
 BT_Accessory/keys/*.private.pem
 .hgignore.orig
 
-# Local project assets must not be committed or exported to GitHub.
-syntax: regexp
-^Project_Assets(/|$)
+BT_Accessory/boot_diagnostic
+BT_Accessory/ai-doc
+BT_Accessory/output
+BT_Accessory/boot_trace.conf
+BT_Accessory/src/Temp
+BT_Accessory/tools/__pycache__
+
+Project_Assets
+output
+Proj_Documents
+

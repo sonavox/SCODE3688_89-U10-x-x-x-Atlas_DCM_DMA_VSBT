@@ -16,3 +16,7 @@
 # Mercurial metadata and ignore-file backup.
 /.hg/
 /.hgignore.orig
+/BT_Accessory/boot_diagnostic/
+/BT_Accessory/ai-doc/
+/BT_Accessory/output/
+/BT_Accessory/boot_trace.conf
