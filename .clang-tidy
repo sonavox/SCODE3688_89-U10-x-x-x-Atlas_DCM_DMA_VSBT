@@ -33,7 +33,7 @@ Checks: >-
   misc-redundant-expression,
   portability-simd-intrinsics
 WarningsAsErrors: ''
-HeaderFilterRegex: '.*[\\/]hello_world[\\/]src[\\/].*'
+HeaderFilterRegex: '.*[\\/]BT_Accessory[\\/]src[\\/].*'
 SystemHeaders: false
 FormatStyle: none
 ...

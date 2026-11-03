@@ -1,0 +1,9 @@
+sample:
+  description: BT_Accessory firmware for the NXP FRDM-MCXA156 board
+  name: BT_Accessory
+common:
+  build_only: true
+  integration_platforms:
+    - frdm_mcxa156/mcxa156
+tests:
+  sample.bt_accessory: {}

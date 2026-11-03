@@ -4,8 +4,8 @@
 			"path": "../../MCXA_Lib/Lib"
 		},
 		{
-			"name": "hello_world",
-			"path": "hello_world"
+			"name": "BT_Accessory",
+			"path": "BT_Accessory"
 		},
 		{
 			"path": "ci"
@@ -16,7 +16,7 @@
 	],
 	"settings": {
 		"C_Cpp.default.configurationProvider": "",
-		"C_Cpp.default.compileCommands": "C:/SCODE/NXP_Dev/MCXA156/01_HelloWorld/hello_world/debug/compile_commands.json",
+		"C_Cpp.default.compileCommands": "${workspaceFolder:BT_Accessory}/debug/compile_commands.json",
 		"C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
 		"C_Cpp.exclusionPolicy": "checkFolders",
 		"C_Cpp.files.exclude": {

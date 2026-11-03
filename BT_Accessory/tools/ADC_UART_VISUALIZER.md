@@ -3,7 +3,7 @@
 Run:
 
 ```powershell
-python .\hello_world\tools\adc_uart_visualizer.py
+python .\BT_Accessory\tools\adc_uart_visualizer.py
 ```
 
 The only non-standard Python dependency is `pyserial`:

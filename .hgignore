@@ -1,9 +1,14 @@
 syntax: glob
-hello_world/__repo__
-hello_world/debug
-hello_world/temp
+BT_Accessory/__repo__
+BT_Accessory/debug
+BT_Accessory/temp
 tmp/
-hello_world/mcuboot_build
-hello_world/format-prompt
-hello_world/keys/*_signingkey.pem
-hello_world/keys/*.private.pem
+BT_Accessory/mcuboot_build
+BT_Accessory/format-prompt
+BT_Accessory/keys/*_signingkey.pem
+BT_Accessory/keys/*.private.pem
+.hgignore.orig
+
+# Local project assets must not be committed or exported to GitHub.
+syntax: regexp
+^Project_Assets(/|$)

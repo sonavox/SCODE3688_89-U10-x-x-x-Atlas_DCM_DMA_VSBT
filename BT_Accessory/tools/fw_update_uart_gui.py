@@ -31,7 +31,7 @@ except ImportError:  # pragma: no cover - dependency is checked at runtime
 
 DEFAULT_COM_PORT = "COM9"
 DEFAULT_BAUD_RATE = 115200
-DEFAULT_IMAGE = r".\hello_world\debug\zephyr\zephyr.signed.bin"
+DEFAULT_IMAGE = r".\BT_Accessory\debug\zephyr\zephyr.signed.bin"
 
 HW_REV = 0x01
 LIB_REV = 0x0001

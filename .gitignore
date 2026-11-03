@@ -1,0 +1,18 @@
+# Local project assets: documentation, GUI projects, SDK, backups, and keys.
+/Project_Assets/
+
+# Generated application files and local working directories.
+/BT_Accessory/__repo__/
+/BT_Accessory/debug/
+/BT_Accessory/temp/
+/BT_Accessory/mcuboot_build/
+/BT_Accessory/format-prompt/
+/tmp/
+
+# Private signing keys.
+/BT_Accessory/keys/*_signingkey.pem
+/BT_Accessory/keys/*.private.pem
+
+# Mercurial metadata and ignore-file backup.
+/.hg/
+/.hgignore.orig

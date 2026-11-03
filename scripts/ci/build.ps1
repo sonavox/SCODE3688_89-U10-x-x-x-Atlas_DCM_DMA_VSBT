@@ -222,7 +222,7 @@ function Get-TrackedApplicationFiles {
     $isMercurialCheckout = Test-Path -LiteralPath $hgMetadata -PathType Container
 
     if ($isGitCheckout) {
-        $output = Get-CheckedOutput -FilePath $Git -Arguments @('-C', $RepositoryRoot, 'ls-files', '--', 'hello_world')
+        $output = Get-CheckedOutput -FilePath $Git -Arguments @('-C', $RepositoryRoot, 'ls-files', '--', 'BT_Accessory')
     }
     elseif ($isMercurialCheckout) {
         $hgCommand = Get-Command 'hg.exe' -ErrorAction SilentlyContinue
@@ -232,7 +232,7 @@ function Get-TrackedApplicationFiles {
         if ($null -eq $hgCommand) {
             throw 'Mercurial is required to enumerate tracked application files for the ephemeral source copy.'
         }
-        $output = Get-CheckedOutput -FilePath $hgCommand.Source -Arguments @('--cwd', $RepositoryRoot, 'files', 'hello_world')
+        $output = Get-CheckedOutput -FilePath $hgCommand.Source -Arguments @('--cwd', $RepositoryRoot, 'files', 'BT_Accessory')
     }
     else {
         throw 'Repository is neither a Git nor Mercurial checkout.'
@@ -240,7 +240,7 @@ function Get-TrackedApplicationFiles {
 
     $files = @($output -split '\r?\n' | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
     if ($files.Count -eq 0) {
-        throw 'Source control reported no tracked files beneath hello_world.'
+        throw 'Source control reported no tracked files beneath BT_Accessory.'
     }
     return $files
 }
@@ -253,7 +253,7 @@ function Copy-TrackedApplicationSource {
     )
 
     New-Item -ItemType Directory -Path $DestinationRoot -Force | Out-Null
-    $privateKeyRelative = 'hello_world\keys\wallcontroller_signingkey.pem'
+    $privateKeyRelative = 'BT_Accessory\keys\wallcontroller_signingkey.pem'
     $repositoryPrefix = "$(Get-NormalizedPath -Path $RepositoryRoot)\"
     $destinationPrefix = "$(Get-NormalizedPath -Path $DestinationRoot)\"
     $copied = 0
@@ -282,7 +282,7 @@ function Copy-TrackedApplicationSource {
         $copied++
     }
 
-    $applicationSource = Join-Path $DestinationRoot 'hello_world'
+    $applicationSource = Join-Path $DestinationRoot 'BT_Accessory'
     if (-not (Test-Path -LiteralPath (Join-Path $applicationSource 'CMakeLists.txt') -PathType Leaf)) {
         throw "Generated application copy is incomplete: $applicationSource"
     }
@@ -381,7 +381,7 @@ function Assert-GeneratedBuildPaths {
         if (-not $text.Contains($normalizedKey)) {
             throw 'Configured signing commands do not reference the disposable CI signing key.'
         }
-        $developmentKey = ([IO.Path]::GetFullPath((Join-Path $Environment.repository_root 'hello_world\keys\wallcontroller_signingkey.pem'))).Replace('\', '/').ToLowerInvariant()
+        $developmentKey = ([IO.Path]::GetFullPath((Join-Path $Environment.repository_root 'BT_Accessory\keys\wallcontroller_signingkey.pem'))).Replace('\', '/').ToLowerInvariant()
         if ($text.Contains($developmentKey)) {
             throw 'Configured signing commands reference the development signing key.'
         }
@@ -518,7 +518,7 @@ function Invoke-FirmwareBuild {
     }
     New-Item -ItemType Directory -Path $buildDirectory -Force | Out-Null
 
-    $canonicalApplication = Join-Path $repositoryRoot 'hello_world'
+    $canonicalApplication = Join-Path $repositoryRoot 'BT_Accessory'
     $developmentKey = Join-Path $canonicalApplication 'keys\wallcontroller_signingkey.pem'
     $applicationSource = $canonicalApplication
     $ephemeralKey = $null

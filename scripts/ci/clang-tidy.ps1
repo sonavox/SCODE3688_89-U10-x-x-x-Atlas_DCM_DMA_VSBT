@@ -304,7 +304,7 @@ function Invoke-ClangTidyAnalysis {
             Write-Host $plainLine
             Add-Content -LiteralPath $logPath -Value $plainLine -Encoding utf8
             if ($plainLine -match '(?i):\d+:\d+:\s+warning:\s+') {
-                $displayLine = $plainLine.Replace($applicationSource, 'hello_world', [StringComparison]::OrdinalIgnoreCase)
+                $displayLine = $plainLine.Replace($applicationSource, 'BT_Accessory', [StringComparison]::OrdinalIgnoreCase)
                 [void]$diagnostics.Add($displayLine)
             }
         }

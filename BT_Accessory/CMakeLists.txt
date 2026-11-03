@@ -26,7 +26,7 @@ set(DTC_OVERLAY_FILE
     CACHE STRING "Application devicetree overlays" FORCE)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
-project(hello_world)
+project(BT_Accessory)
 
 set(SELECTED_AUDIO_GUI_DIR
     "${CMAKE_CURRENT_SOURCE_DIR}/src/LVGL_Controller/Screens/SelectedAudioSource/SelectedAudioSrc_Bluetooth/GUI_Guider_Generated")
@@ -99,7 +99,6 @@ mcxa_target_components(
         SPI
         QDC
         AK4148
-        FlexIO_I2S
 )
 
 target_sources(app PRIVATE  
