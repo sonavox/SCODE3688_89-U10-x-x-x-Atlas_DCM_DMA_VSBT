@@ -30,12 +30,6 @@ typedef struct
     sT_MsgData_t stData;
 } sT_BulkQueueMessage_t;
 
-/*
- * Queue items are intentionally kept out of the producer and worker stacks.
- * The producer staging item is protected by kMutex_BulkTransfer, and the
- * consumer staging item is owned exclusively by the single bulk worker.
- * k_msgq_put() copies the complete item before it returns.
- */
 static sT_BulkQueueMessage_t stBulkQueueProducerMessage;
 static sT_BulkQueueMessage_t stBulkQueueConsumerMessage;
 
@@ -111,7 +105,7 @@ bool bStart_BulkDataTransfer(sT_BulkTransferData stTTransferData)
     if(stTTransferData.eFileType <= eFile_Error ||
        stTTransferData.eFileType >= eNUMBER_OF_FILE_TYPEs)
     {
-        FHALT("LittleFS: Invalid FileType");
+        FHALT("LittleFS: Invalid FileType : %d", stTTransferData.eFileType);
         return false;
     }
     if(stTTransferData.uiFileSize == 0U)

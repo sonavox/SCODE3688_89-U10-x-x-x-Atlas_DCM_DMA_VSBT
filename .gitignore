@@ -1,5 +1,7 @@
 # Local project assets: documentation, GUI projects, SDK, backups, and keys.
-/Project_Assets/
+/Project_Assets/GuiGuider_Screens/BluetoothConnect/*.bin
+/Project_Assets/GuiGuider_Screens/BluetoothConnect/*.png
+/Project_Assets/GuiGuider_Screens/BluetoothConnect/*.zip
 
 # Generated application files and local working directories.
 /BT_Accessory/__repo__/
